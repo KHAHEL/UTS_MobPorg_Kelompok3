@@ -41,6 +41,9 @@ lib/
    flutter run
 
 ## Screenshot
+Menu Awal
+<img width="656" height="875" alt="image" src="https://github.com/user-attachments/assets/7606516a-dde9-4dfe-86bf-5502897896f1" />
+
 
 Halaman Pemilihan Menu
 <img width="652" height="872" alt="image" src="https://github.com/user-attachments/assets/103d8818-a0d2-4010-a97c-c79193215340" />
