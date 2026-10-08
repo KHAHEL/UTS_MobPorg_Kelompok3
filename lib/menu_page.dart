@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'keranjang_page.dart';
+import 'restoran_page.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -15,7 +16,8 @@ class _MenuPageState extends State<MenuPage> {
       'name': 'Nasi Goreng',
       'subtitle': 'Nasi goreng spesial + telur',
       'price': 25000,
-      'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8yxPqooYoS0ezAmESxpnWkPDdOW7yaPxIy6SuO3UwEA&s=10',
+      'image':
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8yxPqooYoS0ezAmESxpnWkPDdOW7yaPxIy6SuO3UwEA&s=10',
       'quantity': 1,
       'level': 'Sedang',
     },
@@ -23,7 +25,8 @@ class _MenuPageState extends State<MenuPage> {
       'name': 'Mie Ayam',
       'subtitle': 'Mie ayam bakso',
       'price': 20000,
-      'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRicPM06BK6A297Q--5JuXOJx-Nn8DVi-5NT3D2weudcQ&s=10',
+      'image':
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRicPM06BK6A297Q--5JuXOJx-Nn8DVi-5NT3D2weudcQ&s=10',
       'quantity': 1,
       'level': 'Sedang',
     },
@@ -31,7 +34,8 @@ class _MenuPageState extends State<MenuPage> {
       'name': 'Sate Ayam',
       'subtitle': '10 tusuk',
       'price': 20000,
-      'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXCNPtWNj7jijvLKpKqDRaqlcH1FlDBEsEs5nD2uVCgg&s=10',
+      'image':
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXCNPtWNj7jijvLKpKqDRaqlcH1FlDBEsEs5nD2uVCgg&s=10',
       'quantity': 1,
       'level': 'Sedang',
     },
@@ -106,8 +110,11 @@ class _MenuPageState extends State<MenuPage> {
                     width: 60,
                     height: 60,
                     color: Colors.grey.shade100,
-                    child: const Icon(Icons.image_not_supported,
-                        color: Colors.blueGrey, size: 28),
+                    child: const Icon(
+                      Icons.image_not_supported,
+                      color: Colors.blueGrey,
+                      size: 28,
+                    ),
                   ),
                 ),
               ),
@@ -119,13 +126,17 @@ class _MenuPageState extends State<MenuPage> {
                     Text(
                       menu['name'],
                       style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 14),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       menu['subtitle'],
-                      style:
-                      TextStyle(color: Colors.grey.shade600, fontSize: 12),
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 12,
+                      ),
                     ),
                     const SizedBox(height: 6),
                     Text(
@@ -143,7 +154,7 @@ class _MenuPageState extends State<MenuPage> {
           ),
           const SizedBox(height: 10),
 
-          // Kostumisasi: level pedas
+          // Kustomisasi: level pedas
           Wrap(
             spacing: 8,
             children: levels.map((l) {
@@ -168,7 +179,11 @@ class _MenuPageState extends State<MenuPage> {
                     color: Colors.blue.shade50,
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  child: const Icon(Icons.remove, size: 14, color: Colors.blue),
+                  child: const Icon(
+                    Icons.remove,
+                    size: 14,
+                    color: Colors.blue,
+                  ),
                 ),
               ),
               SizedBox(
@@ -177,7 +192,9 @@ class _MenuPageState extends State<MenuPage> {
                   '${menu['quantity']}',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 13),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                  ),
                 ),
               ),
               GestureDetector(
@@ -189,7 +206,11 @@ class _MenuPageState extends State<MenuPage> {
                     color: Colors.blue.shade50,
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  child: const Icon(Icons.add, size: 14, color: Colors.blue),
+                  child: const Icon(
+                    Icons.add,
+                    size: 14,
+                    color: Colors.blue,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -199,7 +220,8 @@ class _MenuPageState extends State<MenuPage> {
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
                 child: const Text('Tambah'),
               ),
@@ -217,6 +239,20 @@ class _MenuPageState extends State<MenuPage> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
+
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          tooltip: 'Pilih restoran lagi',
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const RestoranPage(),
+              ),
+            );
+          },
+        ),
+
         title: const Text('Menu'),
         actions: [
           Stack(
@@ -226,8 +262,14 @@ class _MenuPageState extends State<MenuPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const CartPage()),
-                  ).then((_) => setState(() {}));
+                    MaterialPageRoute(
+                      builder: (context) => const CartPage(),
+                    ),
+                  ).then((_) {
+                    if (mounted) {
+                      setState(() {});
+                    }
+                  });
                 },
               ),
               if (totalItems > 0)
@@ -239,7 +281,10 @@ class _MenuPageState extends State<MenuPage> {
                     backgroundColor: Colors.red,
                     child: Text(
                       '$totalItems',
-                      style: const TextStyle(fontSize: 10, color: Colors.white),
+                      style: const TextStyle(
+                        fontSize: 10,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

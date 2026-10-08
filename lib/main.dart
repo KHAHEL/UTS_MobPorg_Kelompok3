@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu_page.dart';
+import 'restoran_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pesan Makanan',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Roboto'),
-      home: const MenuPage(),
+      home: const RestoranPage(),
     );
   }
 }
