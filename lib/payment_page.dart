@@ -49,8 +49,8 @@ class _PaymentPageState extends State<PaymentPage> {
           TextButton(
             onPressed: () {
               cart.clear();
-              Navigator.pop(dialogContext); // tutup dialog
-              Navigator.popUntil(context, (route) => route.isFirst); // ke menu
+              Navigator.pop(dialogContext);
+              Navigator.popUntil(context, (route) => route.isFirst); // kembali ke menu
             },
             child: const Text('OK'),
           ),
